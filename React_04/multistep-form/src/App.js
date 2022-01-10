@@ -1,12 +1,11 @@
-import logo from "./logo.svg";
-import React from "react";
-import { UseForm } from "./components/UseForm";
 import "./App.css";
+import React from "react";
+import Signup from "./components/Signup";
 
 function App() {
   return (
     <div className="App">
-      <UseForm />
+      <Signup />
     </div>
   );
 }

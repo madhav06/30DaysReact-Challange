@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import UserDetails from "./UserDetails";
+import PersonalDetails from "./PersonalDetails";
+import Confirmation from "./Confirmation";
+import Success from "./Success";
 
 export default class Signup extends Component {
   state = {
@@ -49,13 +53,35 @@ export default class Signup extends Component {
     };
 
     switch (step) {
-      case 1: //
+      case 1:
+        return (
+          <UserDetails
+            nextStep={this.nextStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
+      case 2:
+        return (
+          <PersonalDetails
+            prevStep={this.prevStep}
+            nextStep={this.nextStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
+      case 3:
+        return (
+          <Confirmation
+            prevStep={this.prevStep}
+            nextStep={this.nextStep}
+            values={values}
+          />
+        );
+      case 4:
+        return <Success />;
+      default:
+      // do nothing
     }
-
-    return (
-      <div>
-        <h1>hello</h1>
-      </div>
-    );
   }
 }
