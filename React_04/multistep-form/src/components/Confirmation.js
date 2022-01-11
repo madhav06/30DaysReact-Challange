@@ -8,8 +8,16 @@ import {
   Button,
   Typography,
 } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import { ClassNames } from "@emotion/react";
 
-const Confirmation = ({ prevStep, nextStep, values }) => {
+const Confirmation = ({
+  prevStep,
+  nextStep,
+  values,
+  handleChange,
+  handleSubmit,
+}) => {
   console.log(values);
   const {
     firstName,
@@ -30,37 +38,100 @@ const Confirmation = ({ prevStep, nextStep, values }) => {
     prevStep();
   };
 
+  const useStyles = makeStyles({
+    container: {
+      maxBlockSize: "240px",
+      textDecoration: "none",
+      border: "outlined",
+      marginLeft: "15px",
+      marginRight: "5px",
+    },
+    firstname: {
+      paddingTop: "20px",
+      textAlign: "center",
+      float: "23px",
+    },
+    lastname: {
+      paddingTop: "20px",
+      textAlign: "center",
+    },
+    email: {
+      paddingTop: "20px",
+      textAlign: "center",
+    },
+    password: {
+      paddingTop: "20px",
+      textAlign: "center",
+    },
+    pay: {
+      textAlign: "center",
+    },
+    comment: {
+      textAlign: "center",
+    },
+  });
+
+  const classes = useStyles();
+
   return (
-    <Container>
+    <Container className={classes.container}>
       <div>
         <Typography>
-          <List>
-            <ListItem>
-              <ListItemText primary="First Name" secondary={firstName} />
+          <List className={classes.lists} spacing={2}>
+            <ListItem className={classes.items}>
+              <ListItemText
+                className={classes.firstname}
+                primary="First Name:"
+                secondary={firstName}
+              />
             </ListItem>
-            <ListItem>
-              <ListItemText primary="Last Name" secondary={lastName} />
+            <ListItem className={classes.items}>
+              <ListItemText
+                className={classes.lastname}
+                primary="Last Name:"
+                secondary={lastName}
+              />
             </ListItem>
-            <ListItem>
-              <ListItemText primary="Email" secondary={email} />
+            <ListItem className={classes.items}>
+              <ListItemText
+                className={classes.email}
+                primary="Email:"
+                secondary={email}
+              />
             </ListItem>
-            <ListItem>
-              <ListItemText primary="Username" secondary={username} />
+            <ListItem className={classes.items}>
+              <ListItemText
+                className={classes.password}
+                primary="Username:"
+                secondary={username}
+              />
             </ListItem>
-            <ListItem>
-              <ListItemText primary="Password" secondary={password} />
+            <ListItem className={classes.items}>
+              <ListItemText
+                className={classes.password}
+                primary="Password:"
+                secondary={password}
+              />
             </ListItem>
-            <ListItem>
-              <ListItemText primary="Pay" secondary={payAmount} />
+            <ListItem className={classes.override}>
+              <ListItemText
+                className={classes.pay}
+                primary="Pay:"
+                secondary={payAmount}
+              />
             </ListItem>
-            <ListItem>
-              <ListItemText primary="Comment" secondary={addComment} />
+            <ListItem className={classes.override}>
+              <ListItemText
+                className={classes.comment}
+                primary="Comment:"
+                secondary={addComment}
+              />
             </ListItem>
           </List>
           <br />
 
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={8} sm={3}>
               <Button
                 onClick={Previous}
                 type="submit"
@@ -71,7 +142,7 @@ const Confirmation = ({ prevStep, nextStep, values }) => {
                 Previous
               </Button>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={8} sm={3}>
               <Button
                 onClick={Continue}
                 type="submit"
