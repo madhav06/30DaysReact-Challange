@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import UserDetails from "./UserDetails";
 import PersonalDetails from "./PersonalDetails";
 import Confirmation from "./Confirmation";
+import PayDetails from "./PayDetails";
 import Success from "./Success";
 
 export default class Signup extends Component {
@@ -39,7 +40,7 @@ export default class Signup extends Component {
       password,
       firstName,
       lastName,
-      payableAmount,
+      payAmount,
       addComment,
     } = this.state;
     const values = {
@@ -48,7 +49,7 @@ export default class Signup extends Component {
       password,
       firstName,
       lastName,
-      payableAmount,
+      payAmount,
       addComment,
     };
 
@@ -72,13 +73,23 @@ export default class Signup extends Component {
         );
       case 3:
         return (
-          <Confirmation
+          <PayDetails
             prevStep={this.prevStep}
             nextStep={this.nextStep}
+            handleChange={this.handleChange}
             values={values}
           />
         );
       case 4:
+        return (
+          <Confirmation
+            prevStep={this.prevStep}
+            nextStep={this.nextStep}
+            handleChange={this.handleChange}
+            values={values}
+          />
+        );
+      case 5:
         return <Success />;
       default:
       // do nothing
