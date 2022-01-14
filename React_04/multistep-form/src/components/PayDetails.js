@@ -10,7 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { ClassNames } from "@emotion/react";
 import { borderRadius } from "@mui/system";
 
-const PayDetails = ({
+const PersonalDetails = ({
   nextStep,
   prevStep,
   handleChange,
@@ -105,4 +105,4 @@ const PayDetails = ({
     </Container>
   );
 };
-export default PayDetails;
+export default PersonalDetails;
