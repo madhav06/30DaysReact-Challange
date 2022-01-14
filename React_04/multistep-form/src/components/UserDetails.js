@@ -7,7 +7,7 @@ import {
   Button,
 } from "@material-ui/core";
 
-const UserDetails = ({ nextStep, prevStep, values, handleChange }) => {
+const UserDetails = ({ nextStep, values, handleChange }) => {
   // for continue event Listener
   const Continue = (e) => {
     e.preventDefault();
