@@ -2,14 +2,28 @@ import logo from "./logo.svg";
 import "./App.css";
 import MaterialTable from "material-table";
 import { useState } from "react";
-
+import DownloadIcon from "@mui/icons-material/Download";
+import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import DoneIcon from "@mui/icons-material/Done";
+import CloseIcon from "@mui/icons-material/Close";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 function App() {
   const columns = [
-    { title: "Subjects", field: "subject", filtering: false },
+    {
+      title: "Subjects",
+      field: "subject",
+      filtering: false,
+      defaultGroupOrder: 1,
+      cellStyle: { color: "blue" },
+    },
     {
       title: "Students",
       field: "student",
       filterPlaceholder: "Filter by Name",
+      defaultGroupOrder: 0,
     },
     {
       title: "Marks",
@@ -17,11 +31,13 @@ function App() {
       defaultSort: "asc",
       searchable: false,
       filterPlaceholder: "Filter by Marks",
+      defaultGroupOrder: 2,
     },
     {
       title: "Remarks",
       field: "remark",
       filterPlaceholder: "Filter by Remarks",
+      grouping: false,
     },
   ];
 
@@ -103,21 +119,75 @@ function App() {
       <MaterialTable
         columns={columns}
         data={tableData}
-        title="Student Marksheet"
+        editable={{
+          onRowAdd: (newRow) =>
+            new Promise((resolve, reject) => {
+              console.log(newRow);
+              setTableData([...tableData, newRow]);
+              setTimeout(() => resolve(), 500);
+            }),
+
+          onRowUpdate: (newRow, oldRow) =>
+            new Promise((resolve, reject) => {
+              const updateData = [...tableData];
+              updateData[oldRow.tableData.id] = newRow;
+              setTableData(updateData);
+              console.log(newRow, oldRow);
+              setTimeout(() => resolve(), 500);
+            }),
+
+          onRowDelete: (selectedRow) =>
+            new Promise((resolve, reject) => {
+              const updateData = [...tableData];
+              updateData.splice(selectedRow.tableData.id, 1);
+              console.log(updateData);
+              setTimeout(() => resolve(), 1000);
+            }),
+        }}
+        omSelectionChange={(selectedRows) => console.log(selectedRows)}
         options={{
           // sorting
           sorting: true,
-          search: true,
-          searchText: "Mithila Polikar",
+          search: false,
+          // searchText: "Mithila Polikar",
           searchFieldAlignment: "left",
           searchAutoFocus: true,
 
           //filtering
-          filtering: true,
+          filtering: false,
 
           //pagination
           paging: true,
           pageSizeOptions: [10, 20, 30, 50, 100],
+
+          //export in react-table
+          exportButton: true,
+          exportAllData: true,
+          exportFileName: "StudentDetails",
+          actionsColumnIndex: -1,
+
+          // checkboxes
+          showSelectAllCheckbox: false,
+          showTextRowsSelected: false,
+          selectionProps: (rowData) => ({
+            disabled: true,
+            color: "primary",
+          }),
+          grouping: true,
+          rowStyle: (data, index) =>
+            index % 2 ? { background: "#f5f5f5" } : null,
+          headerStyle: { background: "green", fontStyle: "italic" },
+        }}
+        title="Student Marksheet"
+        icons={{
+          Export: () => <DownloadIcon />,
+          Add: () => <AddIcon />,
+          Delete: () => <DeleteIcon />,
+          Edit: () => <EditIcon />,
+          ch: () => <DoneIcon />,
+          Clear: () => <CloseIcon />,
+          NextPage: () => <ArrowForwardIosIcon />,
+          PrevPage: () => <ArrowBackIosIcon />,
         }}
       />
     </div>
