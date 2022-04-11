@@ -1,5 +1,4 @@
 // Form Component
-
 import React, {Component} from "react";
 import styles from './App.css'
 import {
@@ -26,7 +25,7 @@ class AddCoder extends Component {
     
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
+        this.props.addCoder(this.state);
     }
     render(){
         return(

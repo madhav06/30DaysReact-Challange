@@ -1,23 +1,48 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
 import Coders from './Coders';
-const list= [
-  {name:'Rajyavardhan Singh Diwan', age:'30', contribution:'+124', ranking:'1090', key='1'},
-  {name:'Mohit Rajput', age:'27', contribution:'+80', ranking:'3513', key='2'},
-  {name:'Mohit Rajput',age:'22',contribution:'+147',ranking:'0996', key='3'}
-]
-const App = ({name,age,contribution,ranking  }) => {
- 
-  const [vals, setVals] = useState(list);
-  console.log(name,age,contribution,ranking)
-  return (
-    <div className="App">
-      <h1>My first react app</h1>
-      <p>Welcome:)</p>
-      <Coders list={setVals(vals)} />
-      
+import AddCoder from './AddCoder';
 
-    </div>
-  );
+class App extends Component {
+  state = {
+    coders: [
+      {name:'Rajyavardhan Singh Diwan', age:'30', contribution:'+124',ranking:'1109', id: '1' },
+      {name:'Mihir Yadav',age:'27',contribution:'+118',ranking:'1376', id: '2'},
+      {name:'Sonal Sharma',age:'24',contribution:'+142',ranking:'920', id: '3'},
+    ]
+
+  }
+  //addCoder is function
+  addCoder = (newcoder) => {
+    console.log(newcoder)
+    newcoder.id = Math.random();
+    let coders = [...this.state.coders, newcoder];
+    this.setState({
+      coders: coders
+    })
+  }
+
+  deleteCoder = (id) => {
+    console.log(id)
+    let coders = this.state.coders.filter(coder => {
+      return coder.id !== id
+    });
+    this.setState({
+      coders: coders
+    })
+    //
+  }
+ 
+  render(){
+    return (
+      <div className="App">
+        <h1>My first react app</h1>
+        <p>Welcome:)</p>
+        <Coders coders={this.state.coders} deleteCoder={this.deleteCoder}/>
+        <AddCoder addCoder={this.addCoder} />  
+      </div>
+    );
+  }
+  
 }
 
 export default App;
