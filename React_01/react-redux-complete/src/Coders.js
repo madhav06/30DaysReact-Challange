@@ -4,14 +4,14 @@ const Coders = (props) => {
         const {coders} = props;
         const {deleteCoder} = props;
         const coderList = coders.map(coder => {
-            if(coder.ranking < 1000){
+            if(coder.ranking > 800){
                 return (
                     <div className='coder' key={coder.id}>
                         <div>Name: {coder.name}</div>
                         <div>Age:{coder.age}</div>
                         <div>Contribution: {coder.contribution}</div>
                         <div>Ranking: {coder.ranking}</div>
-                        <button onClick={() => {deleteCoder(coder.id)}}>Delete Coder</button> 
+                        <button className="delete" onClick={() => {deleteCoder(coder.id)}}>Delete Coder</button> 
                     </div> 
                 ) 
             }else {

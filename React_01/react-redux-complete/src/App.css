@@ -1,25 +1,50 @@
-.button1 {
-    background: #04AA6D; 
-    border-radius: 12px;
-  }
+.submit {
+  background: #e77685; 
+  border-radius: 12px;
+}
+
+.delete {
+  background: #e77685;
+  border-radius: 12px;
+}
+.container {
+  width: 100%;
+  display: center;
+  margin: 24px;
+  padding: 15px;
   
-  .container > form {
-    width: 70%;
-    border: 1px solid #dfdfdf;
-    padding: 20px;
-    border-radius: 5px;
-    background: #fff;
-  }
-  .App {
-    text-align: center;
-  }
-  
-  body {
-    background: rgb(2, 0, 36);
-    background: radial-gradient(
-      circle,
-      rgba(2, 0, 36, 1) 0%,
-      rgba(30, 54, 59, 1) 0%,
-      rgba(93, 93, 116, 1) 100%
-    );
-  }
+}
+.welcome {
+  color: rgb(225, 226, 238);
+  font-weight: 100px;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  transition: 2ms;
+}
+.header {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 40px;
+  color: blanchedalmond;
+}
+
+.container > form {
+  width: 80%;
+  border: 1px solid #dfdfdf;
+  padding: 30px 20px 30px 30px;
+  border-radius: 10px;
+  background: #fff;
+  display: center;
+}
+.App {
+  text-align: center;
+}
+
+body {
+  background: rgb(18, 216, 206);
+  background: radial-gradient(
+    circle,
+    rgb(169, 184, 40) 0%,
+    rgb(73, 179, 201) 0%,
+    rgb(20, 179, 228) 100%
+  );
+}

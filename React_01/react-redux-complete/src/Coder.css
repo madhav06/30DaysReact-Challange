@@ -1,0 +1,15 @@
+body {
+    background: pink;
+    transition: all 1s;
+}
+
+/* .coder form {
+    background: #fff;
+    padding: 20px;
+} */
+
+.container form {
+    background: #fff;
+    padding: 20px;
+}
+

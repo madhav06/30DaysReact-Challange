@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Coders from './Coders';
 import AddCoder from './AddCoder';
+import styles from './App.css'
 
 class App extends Component {
   state = {
@@ -35,8 +36,8 @@ class App extends Component {
   render(){
     return (
       <div className="App">
-        <h1>My first react app</h1>
-        <p>Welcome:)</p>
+        <h1 className='header'>Codeforces contestant Data</h1>
+        <p className='welcome'>Welcome 😊 to the codeforces Top rated users </p>
         <Coders coders={this.state.coders} deleteCoder={this.deleteCoder}/>
         <AddCoder addCoder={this.addCoder} />  
       </div>
