@@ -6,7 +6,7 @@ function Contact() {
             <h3>Send Me Mail</h3>
             <div className='contact-input'>
                 <input type='email' placeholder='example@gmail.com'/>
-                <a href='#'>COntact</a>
+                <a href='#'>Contact</a>
             </div>
         </div>
     )
