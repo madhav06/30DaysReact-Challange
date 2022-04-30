@@ -7,12 +7,15 @@ import featureimage3 from '../images/feature.jpg';
 
 function Feature(){
   return (
-    <div className='a-container'>
+    <div id='features'>
+      <div className='a-container'>
         <FeatureBox image={featureimage} title='Consulting Services'/>
         <FeatureBox image={featureimage2} title='Dedicated Teams'/>
         <FeatureBox image={featureimage1} title='Development Services'/>
         <FeatureBox image={featureimage3} title='Custom Services'/>
+      </div>
     </div>
+    
   );
 }
 
