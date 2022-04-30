@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
-
 body{
   margin:0px;
   padding: 0px;
@@ -98,7 +97,7 @@ transform: translate(-22%,-50%);
   color: #00b7ff;
 }
 .name .details{
-  color: #ce7474;
+  color: #c02525;
 }
 .name h1{
 font-family:'Montserrat';
@@ -355,6 +354,23 @@ font-size: 2rem;
   border-radius: 0px 0px 10px 10px;
   box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
 }
+
+#footer{
+  background-color: #00b7ff;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0px;
+}
+
+
+
+.footer-details a:hover{
+  background-color:#0099ff;
+}
+
+
 
 
 #contact{
