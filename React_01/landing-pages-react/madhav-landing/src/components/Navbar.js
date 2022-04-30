@@ -15,7 +15,7 @@ function Navbar() {
     }
     window.addEventListener('scroll', changeBackground);
   return (
-    <div className={nav ? 'nav active' : 'nav'}>
+    <nav className={nav ? 'nav active' : 'nav'}>
      <a href='#' className="logo">
          <img src={logo} alt=''/>
      </a>
@@ -25,13 +25,13 @@ function Navbar() {
      </label>
      <ul className='menu'>
          <li><a href='#'>Home</a></li>
-         <li><a href='#'>About Us</a></li>
          <li><a href='#'>Solutions</a></li>
+         <li><a href='#'>About Us</a></li> 
          <li><a href='#'>Our Work</a></li>
          <li><a href='#'>Contact Us</a></li>
          
      </ul>
-    </div>
+    </nav>
   );
 }
 
